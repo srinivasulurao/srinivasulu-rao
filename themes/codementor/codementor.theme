@@ -1,0 +1,44 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute; 
+
+
+function codementor_preprocess_page_title(&$variables) {
+
+   // Since the title and the shortcut link are both block level elements,
+  // positioning them next to each other is much simpler with a wrapper div.
+  if (!empty($variables['title_suffix']['add_or_remove_shortcut']) && $variables['title']) {
+    // Add a wrapper div using the title_prefix and title_suffix render
+    // elements.
+    $variables['title_prefix']['shortcut_wrapper'] = [
+      '#markup' => '<div class="shortcut-wrapper clearfix">',
+      '#weight' => 100,
+    ];
+    $variables['title_suffix']['shortcut_wrapper'] = [
+      '#markup' => '</div>',
+      '#weight' => -99,
+    ];
+    // Make sure the shortcut link is the first item in title_suffix.
+    $variables['title_suffix']['add_or_remove_shortcut']['#weight'] = -100;
+
+
+  }
+
+  function codementor_preprocess_page(&$variables) {
+    $variables['logo'] = str_replace('.svg', '.png', $variables['logo']); 
+  }
+  
+  
+  function codementor_preprocess_page(&$vars, $hook) { 
+	  if (true) {
+		drupal_add_js(drupal_get_path('theme', 'codementor') . '/codementor.js');
+		$vars['scripts'] = drupal_get_js(); // necessary in D7?
+	  }
+	}
+  
+
+}
+
+
+?>

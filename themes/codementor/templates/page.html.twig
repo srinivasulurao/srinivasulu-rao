@@ -1,0 +1,57 @@
+<!--
+Name        : Codementor Replica Theme
+Author      : N.Srinivasulu Rao
+Email       : n.srinivasulu.rao@gmail.com
+Description : Personal website of mine, comprises of all the configurations required for the Drupal 8.
+-->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<div id="page-wrapper">
+  <div id="page">
+    <header id="header" class="header" role="banner" aria-label="{{ 'Site header'|t }}">
+      <div class="section layout-container clearfix">
+        {{ page.header }}
+        {{ page.primary_menu }}
+      </div>
+    </header>
+    {% if is_front %}
+    <div class='welcome_background'>{{page.welcome_banner_text}}</div> 
+    {% endif %}
+	
+	{% if is_front==FALSE %}
+	   <!-- This is the content Area -->
+	   <div class="container">
+	   <div class='site_notification'>{{page.highlighted}}</div>
+	   <div>{{page.breadcrumb}}</div>
+	   <div class='col-md-9'>{{page.content}}</div>
+	   {% if page.sidebar_first or page.sidebar_second %}
+         <div class='col-md-3>{{page.sidebar_first}} <br> {{page.sidebar_second}}</div>	   
+	   {% endif %}
+	   </div>
+	   <!-- Content Area Ends here -->
+   {% endif %}
+   
+   <!-- Miscellanous stuff to be added here -->
+	   <div class="middle-divs">{{page.middle_first}}</div>
+	   <div class="middle-divs">{{page.middle_second}}</div>
+	   <div class="middle-divs">{{page.middle_third}}</div>
+	   <div class="middle-divs">{{page.middle_fourth}}</div>
+   <!-- Miscellanous stuff ends here -->
+    
+
+    <footer class="site-footer">
+    <div class='footer_triple_box row footer_triple_box row col-md-10'>
+      <div class='col-md-4'>{{page.footer_first}}</div>
+      <div class='col-md-4'>{{page.footer_second}}</div> 
+      <div class='col-md-4'>{{page.footer_third}}</div>
+
+      <div class='copyright'>&copy 2018 Copyright srinivasulurao.com, All Rights Reserved.
+	       <div class='footer-menu'>{{page.footer_menu}}</div>
+	  </div>
+	  
+    </div>
+
+    </footer>
+  </div>
+</div>
+
+<!-- Add temporary Stuff here --> 

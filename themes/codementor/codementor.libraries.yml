@@ -1,0 +1,29 @@
+global-styling:
+  version: VERSION
+  css:
+    layout:
+      css/bootstrap.min.css: {}
+    theme:
+      css/codementor.css: {}
+      css/bootstrap.min.css: {} 
+  js:
+     js/jquery.min.js : {}
+     js/popper.min.js : {}
+     js/bootstrap.min.js : {}
+     js/cycle.js : {} 
+     js/codementor.js : {}
+      
+messages:
+  version: VERSION
+  css:
+    theme:
+      css/messages.css: { preprocess: false }
+
+maintenance_page:
+  version: VERSION
+  css:
+    theme:
+      css/maintenance-page.css: {}
+  dependencies:
+    - system/maintenance
+    - bartik/global-styling
